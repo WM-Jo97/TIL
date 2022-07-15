@@ -1,7 +1,6 @@
 # TIL
 Today's I Learned
 
-<<<<<<< HEAD
 ![펭하](/Git%20basic/img/ps.jpg)
 
 ## 2022. 07. 15
@@ -14,4 +13,4 @@ Today's I Learned
 =======
   ## 2022. 07. 15
     Git 기본 사용법, CLI, Markdown, Python Requests 사용법
->>>>>>> 718213afb972ae063fd686f2144c81239d535bfe
+
