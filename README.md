@@ -13,3 +13,5 @@ Today's I Learned
 ## 2022.07.16
   Python 공부, Algorizm 공부
 
+## 2022.07.17
+  Python 공부(try, except), algo(낱말)
