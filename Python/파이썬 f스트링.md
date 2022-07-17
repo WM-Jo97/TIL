@@ -49,3 +49,5 @@
     result1 = f'{s3:>10>}'
     print(result3)  
  ```  
+
+ F-string은 반드시 마스터해놓자!!
