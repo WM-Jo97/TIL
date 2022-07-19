@@ -15,3 +15,9 @@ Today's I Learned
 
 ## 2022.07.17
   Python 공부(try, except), algo(낱말)
+
+## 2022.07.18
+  Python 이론 공부(기본 개념 정리), algo
+  
+## 2022.07.19
+  Python 이론 
