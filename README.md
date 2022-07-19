@@ -3,6 +3,9 @@ Today's I Learned
 
 ![펭하](/Git%20basic/img/ps.jpg)
 
+<details>
+<summary>--- 7월 TIL --- </summary>
+<div markdown="1">
 ## 2022. 07. 15
   Git 기본 사용법, CLI, Markdown, Python Requests 사용법
 
@@ -21,3 +24,7 @@ Today's I Learned
   
 ## 2022.07.19
   Python 이론 
+
+</div>
+</details>
+
