@@ -23,7 +23,7 @@ Today's I Learned
   Python 이론 공부(기본 개념 정리), algo
   
 ## 2022.07.19
-  Python 이론 
+  Python 이론 실습
 
 </div>
 </details>
