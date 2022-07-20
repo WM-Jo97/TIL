@@ -25,6 +25,8 @@ Today's I Learned
 ## 2022.07.19
   Python 이론 실습
 
+## 2022.07.20
+  Python 함수 이론, 간단한 응용, 함수 활용
 </div>
 </details>
 
