@@ -1,6 +1,7 @@
 # For문
-    -> Dictionary 는 iterable
 
+    -> Dictionary 는 iterable
+    
     for문과 딕셔너리 함께 사용하기
         for 키 변수 in 딕셔너리 :
 
@@ -20,5 +21,4 @@ for key in grades:
 **    
 enumerate 함수는 그냥 print 값을 찍으면 나오지 않음.
 list(enumerate)를 하면 순서와 값이 나오는 것 확인 가능
-
-
+```

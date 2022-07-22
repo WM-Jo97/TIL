@@ -12,7 +12,6 @@ A['c']
 
 위와 같은 오류가 발생한다.
 
-
 이때 get함수를 이용하면 조금 더 발전된 기능도 사용 가능
 
 get(key, default값)
@@ -21,7 +20,6 @@ get(key, default값)
      key가 없으면 default에 지정한 값을 반환한다.
 
      default에 값을 설정하지 않으면 아무값도 반환하지 않는다.
-
 
 딕셔너리.setdefault(key,default) 함수도 존재하는데
     이 함수는 값이 없을 경우 딕셔너리에 키와 벨류를 지정할 수도 있다.
