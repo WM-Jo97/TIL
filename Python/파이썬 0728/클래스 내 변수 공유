@@ -1,0 +1,27 @@
+인스턴트 변수를 이용하면 클래스 내에서 자유롭게 이용 가능
+
+class Calc(object):
+    def __init__(self, num1, num2):
+        print(num1,num2)
+
+    def sum():
+	return num1 + num2
+
+C1 = Calc(20,10)
+print(C1.sum())
+
+위 에서 num1 + num2 는 없는 변수라고 나옴
+
+class Calc(object):
+    def __init__(self, num1, num2):
+        self.n1 = num1
+        self.n2 = num2
+
+    def sum(self):
+	       return self.n1 + self.n2
+
+C1 = Calc(20,10)
+print(C1.sum())
+
+위 처럼 self.n1  이라는 인스턴스 변수를 선언해주고
+아래 sum에서 인스턴스 변수 self.n1을 이용하면 변수 사용 가능
