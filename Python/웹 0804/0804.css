@@ -1,0 +1,27 @@
+@media only screen and (min-width: 280px) and (max-width:360px) {
+    .text{
+        color:violet;
+        font-size: small;
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width:375px) {
+    .text{
+        color:green;
+        font-size: large;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width:414px) {
+    .text{
+        color:blue;
+        font-size: x-large;
+    }
+}
+
+@media only screen and (min-width: 414px){
+    .text{
+        color:red;
+        font-size: xx-large;
+    }
+}
