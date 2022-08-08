@@ -3,7 +3,7 @@ import sys
 sys.stdin = open("input_1206.text")
 
 
-for i in range(10):
+for t in range(1,11):
 
     N = int(input())
     num_list= list(map(int,input().split()))
@@ -17,9 +17,19 @@ for i in range(10):
     for i in range(2,count-2):
         if num_list[i]-num_list[i-1]>0 and num_list[i]-num_list[i-2]>0 and num_list[i]-num_list[i+1]>0 and num_list[i]-num_list[i+2]>0:
             view_list=[num_list[i]-num_list[i-2],num_list[i]-num_list[i-1],num_list[i]-num_list[i+1], num_list[i]-num_list[i+2]]
-            view_list_list.append(view_list)
-        else:
-            pass
+            view_list_small=1000
+            for i in view_list:
+                if i<view_list_small:
+                    view_list_small=0
+                    view_list_small+=i
+            view_list_list.append(view_list_small)
+
+    total=0
+    for i in view_list_list:
+        total+=i
+
+    print(f'#{t} {total}')
+"""""            
     minimum=1000
     mininumber=[]
     minimun_group=[]
@@ -40,3 +50,4 @@ for i in range(10):
     for i in minimum_list:
         total+=i
     print(total)
+"""
