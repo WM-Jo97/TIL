@@ -3,7 +3,6 @@ import sys
 sys.stdin = open('snail.text')
 
 Test_case = int(input())
-
 for t in range(1,Test_case+1):
     N = int(input())
     arr_2D=[]

@@ -8,5 +8,5 @@ for i in range(N):
         for k in range(4):
             ni = i + di[k]
             nj = j + dj[k]
-            if 0<ni<N and 0<=nj<M:
+            if 0<=ni<N and 0<=nj<M:
                 print(ni,nj)
