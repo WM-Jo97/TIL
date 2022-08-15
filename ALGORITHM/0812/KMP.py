@@ -16,8 +16,9 @@ def pre_process(pattern):
             if pattern[i] == pattern[j]:
                 lps[i] = j+1
                 j+=1
-
     return lps
+
+
 print(pre_process('AABAA'))
 def KMP(text, pattern):
     lps = pre_process(pattern) #전처리로 lps 테이블 생성
@@ -41,7 +42,9 @@ def KMP(text, pattern):
     return -1                 #일치하는 문장이 없는 경우
 
 
-pattern='ABCDABD'
+''
 text = 'ABC ABCDAB ABCDABCDABDE'
+pattern =  'ABCDABD'
+            0000120
 print(KMP(text,pattern))
 
