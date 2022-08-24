@@ -16,9 +16,9 @@ for i in range(K):
     else:
         CUT_X.append(B)
 CUT_X.append(0)
-CUT_X.append(N-1)
+CUT_X.append(M)
 CUT_Y.append(0)
-CUT_Y.append(M-1)
+CUT_Y.append(N)
 
 if len(CUT_X) > 1:
     for i in range(len(CUT_X)):
@@ -32,19 +32,14 @@ if len(CUT_Y) > 1:
             if CUT_Y[y]> CUT_Y[y+1]:
                 CUT_Y[y],CUT_Y[y+1] = CUT_Y[y+1], CUT_Y[y]
 
-print(CUT_X)
-print(CUT_Y)
-
 count=1
-for x in range(len(CUT_Y)-1):
+for x in range(len(CUT_X)-1):
     count+=1
-    for y in range(len(CUT_X)-1):
+    for y in range(len(CUT_Y)-1):
         count+=1
-        for j in range(CUT_Y[x], CUT_Y[x + 1] + 1):
-            for i in range(CUT_X[y],CUT_X[y+1]):
+        for j in range(CUT_Y[y], CUT_Y[y + 1]):
+            for i in range(CUT_X[x],CUT_X[x+1]):
                 Arr[i][j]=count
-
-print(Arr)
 
 Max=[]
 for i in range(M):
@@ -58,4 +53,5 @@ for t in range(max(Max)+1):
             if Arr[i][j] == t:
                 count+=1
     count_list.append(count)
-print(count_list)
+
+print(max(count_list))
