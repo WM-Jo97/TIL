@@ -15,15 +15,7 @@ x=0
 y=0
 for i in range(6):
     Dir, Inst = map(int,input().split())
-    if Dir == 4:
-        y,x = y+Inst,x
-    elif Dir == 3 :
-        y,x = y-Inst,x
-    elif Dir == 1 :
-        y,x = y, x+Inst
-    elif Dir == 2 :
-        y,x = y, x-Inst
-    Arr.append([y,x])
+
 
 X_size=[]
 Y_size=[]
