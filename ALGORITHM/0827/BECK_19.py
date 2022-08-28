@@ -27,21 +27,32 @@ for i in range(4):
         print('a')
         check = True
 
-    if (SQ[1][0] == SQ[2][0] and SQ[0][1]<SQ[2][1]<SQ[1][1]):
-        print('b')
-        check = True
+    if SQ[0][0] < SQ[2][0]:
+        if SQ[0][1] <= SQ[3][1]:
+            if SQ[1][0] == SQ[2][0] and SQ[2][1] < SQ[1][1] and check==False:
+                print('b')
+                check = True
+        elif SQ[0][1] >= SQ[3][1]:
+            if SQ[1][0] == SQ[2][0] and (SQ[0][1]< SQ[3][1]) and check==False:
+                print('b')
+                check = True
 
-    elif (SQ[1][1] == SQ[2][1] and SQ[0][0]<SQ[2][0]<SQ[1][0]):
-        print('b')
-        check = True
+        if SQ[1][1] == SQ[2][1] and (SQ[2][0] < SQ[1][0]) and check==False:
+            print('b')
+            check = True
 
-    elif (SQ[0][0] == SQ[3][0] and SQ[0][1]<SQ[3][1]<SQ[1][1]):
-        print('b')
-        check = True
-
-    elif (SQ[0][1] == SQ[3][1] and SQ[0][0]<SQ[3][0]<SQ[1][0]) :
-        print('b')
-        check = True
+    elif SQ[0][0] > SQ[2][0]:
+        if SQ[0][1] <= SQ[3][1]:
+            if SQ[0][0] == SQ[3][0] and (SQ[0][1]<SQ[3][1]) and check==False:
+                print('b')
+                check = True
+        if SQ[0][1] >= SQ[3][1]:
+            if SQ[0][0] == SQ[3][0] and (SQ[2][1]<SQ[1][1]) and check==False:
+                print('b')
+                check = True
+        if SQ[0][1] == SQ[3][1] and (SQ[0][0]<SQ[3][0]) and check==False:
+            print('b')
+            check = True
 
     else:
         pass
@@ -51,10 +62,16 @@ for i in range(4):
         if (SQ[1][0] > SQ[2][0] and SQ[1][1] > SQ[2][1]) and check == False :
             print('a')
             check = True
-        elif (SQ[0][0] < SQ[2][0] and SQ[1][0] > SQ[3][0]) and (SQ[0][1] < SQ[2][1] and SQ[1][1] > SQ[3][1]) and check == False :
+        elif (SQ[1][0] > SQ[2][0] and SQ[0][1] < SQ[3][1]) and check == False :
+            print('a')
+            check = True
+        elif SQ[1][0] > SQ[3][0] and (SQ[0][1] < SQ[2][1] and SQ[1][1] > SQ[3][1]) and check == False :
             print('a')
             check = True
         elif (SQ[0][0] < SQ[2][0] < SQ[1][0]) and (SQ[2][1] < SQ[1][1]) and check == False:
+            print('a')
+            check = True
+        elif (SQ[0][0] < SQ[2][0] < SQ[1][0]) and (SQ[0][1] < SQ[3][1]) and check == False:
             print('a')
             check = True
         elif (SQ[0][1] < SQ[2][1] < SQ[1][1]) and (SQ[2][0] < SQ[1][0]) and check == False:
@@ -62,16 +79,22 @@ for i in range(4):
             check = True
 
     elif SQ[0][0] >= SQ[2][0]:
-        if (SQ[1][0] < SQ[2][0] and SQ[1][1] < SQ[2][1]) and check == False :
+        if (SQ[1][0] < SQ[2][0] and SQ[0][1] < SQ[2][1]) and check == False :
             print('a')
             check = True
-        elif (SQ[0][0] > SQ[2][0] and SQ[1][0] < SQ[3][0]) and (SQ[0][1] > SQ[2][1] and SQ[1][1] < SQ[3][1]) and check == False :
+        elif (SQ[1][0] < SQ[2][0] and SQ[0][1] > SQ[3][1]) and check == False:
             print('a')
             check = True
-        elif (SQ[0][0] > SQ[2][0] > SQ[1][0]) and (SQ[2][1] > SQ[1][1])and check == False:
+        elif SQ[1][0] < SQ[3][0] and (SQ[0][1] > SQ[2][1] and SQ[1][1] < SQ[3][1]) and check == False :
             print('a')
             check = True
-        elif (SQ[0][1] > SQ[2][1] > SQ[1][1]) and (SQ[2][0] > SQ[1][0]) and check == False:
+        elif (SQ[2][0] < SQ[0][0] < SQ[3][0]) and (SQ[3][1] > SQ[0][1])and check == False:
+            print('a')
+            check = True
+        elif (SQ[2][0] < SQ[0][0] < SQ[3][0]) and (SQ[1][1] > SQ[2][1])and check == False:
+            print('a')
+            check = True
+        elif (SQ[2][1] < SQ[0][1] < SQ[3][1]) and (SQ[3][0] < SQ[0][0]) and check == False:
             print('a')
             check = True
 
