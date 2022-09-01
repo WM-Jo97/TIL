@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>게시판</h1>
+<form action="{% url 'article:create' %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'articles:new' %}"> 글 쓰기 </a>
+    <hr>
+    {% for post in posts %}
+    <p>
+    <a href="{% url 'articles:detail' post.pk %}">{{ post.title }}</a>
+    </p>
+
+{% endblock content %}
+

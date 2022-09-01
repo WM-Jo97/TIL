@@ -9,8 +9,8 @@ def BFS(Start) :
     while Q:
         t=Q.pop(0)
         di = [1,0,0,-1]
-        dj = [0,1,-1,0]
-        for k in range(4):
+        dj = [0,1,-1,0]                                            #BFS, DFS + 델타 ==> 같이 사용하는 문제가 많음
+        for k in range(4):                                         (BFS, DFS) + 델타 + 재귀함수
             x = t[1] + di[k]
             y = t[0] + dj[k]
             if N>x>=0 and N>y>=0:
@@ -25,8 +25,9 @@ def BFS(Start) :
                     for i in visited:
                         if max(i)> max_ret:
                             max_ret=max(i)
-                    return max_ret-2
-                    #return visited
+
+                    #return max_ret-2
+                    return visited
     return 0
 T=int(input())
 
@@ -44,5 +45,8 @@ for t in range(1,T+1):
                 Start.append(i)
                 Start.append(j)
 
-    print(f'#{t} {BFS(Start)}')
+    #print(f'#{t} {BFS(Start)}')
+    for i in BFS(Start):
+        print(i)
+    print()
 

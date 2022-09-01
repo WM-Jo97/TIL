@@ -10,8 +10,8 @@ def BFS(Arr, Start, Goal, V):
         t = Q.pop(0)
 
         if t == Goal:
-            return visited[Goal]-1
-            #return visited
+            #return visited[Goal]-1
+            return visited
         for i in Arr[t]:
             if visited[i]==0:
                 Q.append(i)
@@ -28,7 +28,7 @@ for t in range(1,T+1):
         A, B = map(int,input().split())
         Arr[A].append(B)
         Arr[B].append(A)
-    #print(Arr)
+    print(Arr)
 
     Start, Goal = map(int,input().split())
     #print(Start, Goal)
