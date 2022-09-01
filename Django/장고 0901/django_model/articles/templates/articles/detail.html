@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{post.id}}번 글</h1>
+<p>제목</p>
+<hr>
+<p>{{post.title}}</p>
+<br>
+<p>내용</p>
+<hr>
+<p>{{post.content}}</p>
+<hr>
+{% comment %} post.pk == id__exact {% endcomment %}
+<a href="{% url 'articles:edit' post.id %}"> 수정하기 </a>
+<a href="{% url 'articles:index' %}"> 글 목록보기 </a>
+<hr>
+{% comment %}
+    <a href="{% url 'articles:delete' post.id %}"> 글 삭제하기 </a>
+{% endcomment %}
+<form action="{% url 'articles:delete' post.id %}" method='POST'>
+{% csrf_token %}
+<button>글 삭제하기</button>
+</form>
+{% endblock content %}
+

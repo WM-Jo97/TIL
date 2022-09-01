@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Index</h1>
+{% comment %}1번쨰 방법 : url 전체 복사{% endcomment %}
+{% comment %}<a href="http://127.0.0.1:8000/articles/lotto/">Lotto Page 가기</a>{% endcomment %}
+
+{% comment %}2번쨰 방법 : 경로 이용{% endcomment %}
+{% comment %}<a href="/articles/lotto/">Lotto</a>{% endcomment %}
+
+{% comment %} 3번쨰 방법 : DTL url Tag 사용 {% endcomment %}
+<a href="{% url 'articles:lotto' %}">Lotto 3</a>
+
+<a href="{% url 'articles:new' %}"> 글 쓰기 </a>
+<hr>
+{% for post in posts %}
+<p>
+  {% comment %} 
+  variable routing으로 전달하는 값은 유일한 값이어야 함. = id 값
+  {% url 'app_name:path_name' 전달값}
+  ## 주의 한 칸 띄워 적어준다.
+  {% endcomment %}
+  <a href="{% url 'articles:detail' post.pk %}">{{ post.title }}</a>
+</p>
+{% endfor %}
+
+
+
+
+{% endblock content %}

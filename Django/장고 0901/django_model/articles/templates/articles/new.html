@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>글 작성하기</h1>
+{% comment %} 
+목적지를 만들면 된다! 
+이제 method 는 POST를 사용하자!
+==> DB에 영향을 미치는 요청은 전부 POST 요청으로 하기로 했기 때문
+==> 글 생성한느 것도 DB에 데이터를 추가하는 것이다.
+=> DB를 변경하는 것과 같음
+
+==> POST요청으로 변경할 때 바뀌는 부분
+    1. method
+    2. csrf_token
+    3. views.py에 request.POST로 변경
+{% endcomment %}
+<form action="{% url 'articles:create' %}" method="POST">
+    {% csrf_token %}
+    <label for="title">글 제목</label>
+    <input type="text" id='title' name="title">
+    <br>
+    <label for="content">글 내용</label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    <br>
+    <button>글쓰기</button>
+</form>
+{% endblock content %}
+
