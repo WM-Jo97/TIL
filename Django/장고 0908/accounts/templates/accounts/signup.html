@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Sign up</h1>
+<hr>
+{% comment "" %}
+acthion 값이 비어있으면 현재 페이지로 요청을 보냄
+{% endcomment %}
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>회원가입</button>
+</form>
+{% endblock content %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Practice</h1>
+<hr>
+{% if request.resolver_match.url_name == 'index' %}
+<a href="{% url 'accounts:signup' %}"> 회원가입 </a>
+<br>
+<a href= "{% url 'accounts:login' %}"> 로그인 </a>
+{% elif request.resolver_match.url_name == 'logout' %}
+
+<form action= "{% url 'accounts:logout' %}" method = 'POST'>
+    {% csrf_token %}
+    <button>로그아웃</button>
+</form>
+<a href="{% url 'accounts:update' %}">회원정보 수정</a>
+
+
+{% endif %}
+{% endblock content %}
+

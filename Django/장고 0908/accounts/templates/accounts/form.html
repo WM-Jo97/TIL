@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<hr>
+{% comment "" %}
+acthion 값이 비어있으면 현재 페이지로 요청을 보냄
+{% endcomment %}
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>{{btn_title}}</button>
+</form>
+
+{% if request.resolver_match.url_name == 'login' %}
+이 메세지는 로그인일때 보이는 메세지입니다.
+{% elif request.resolver_match.url_name == 'signup' %}
+이 메세지는 회원가입할때 보여요
+
+{% endif %}
+
+{% endblock content %}
+
