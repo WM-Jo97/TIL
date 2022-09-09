@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Practice</h1>
+
+<hr>
+<a href="{% url 'accounts:signup' %}"> 회원가입 </a>
+<br>
+<a href= "{% url 'accounts:login' %}"> 로그인 </a>
+
+{% endblock content %}
+

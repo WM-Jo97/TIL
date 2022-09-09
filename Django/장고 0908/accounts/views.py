@@ -61,12 +61,12 @@ def delete(request):
 @login_required
 def update(request):
     if request.method == 'POST':
-        form = CustomUserChangeForm(request.POST, instance=request.user)
+        form = CustomUserChangeForm(request.POST, instance=request.title)
         if form.is_valid():
             form.save()
             return redirect('articles:index')
     else:
-        form = CustomUserChangeForm(instance = request.user)
+        form = CustomUserChangeForm(instance = request.title)
     context = {
         'form' : form,
         'title' : '회원정보 수정',

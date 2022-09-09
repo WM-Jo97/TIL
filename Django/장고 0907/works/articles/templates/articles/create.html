@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
  <h1>Create</h1>
  <form action = " {% url 'articles:create' %}" method = 'POST'>
     {% csrf_token %}
@@ -37,5 +36,4 @@
       {{field.content}}
    {% endfor %}
  </form>
-
 {% endblock content %}
