@@ -2,7 +2,6 @@ import sys
 sys.stdin = open('example.text')
 
 N = int(input())
-
 Price = list(map(int,input().split()))
 
 Q=[]
@@ -29,17 +28,18 @@ while Q:
             COUNT = 0
     else:
         COUNT+=1
+print(arr)
 
-Check_price = []
+Check_price = 0
 X = len(arr)
-
 for i in range(X):
     Number = 0
     for j in range(len(arr[i])):
         Number += Price[arr[i][j]-1]
-    Check_price.append(Number)
+    if Number >= Check_price:
+        Check_price = Number
 
-print(max(Check_price))
+print(Check_price)
 
 
 '''
