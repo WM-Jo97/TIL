@@ -36,5 +36,5 @@ for i in range(N):
                     Pay[x] = Price[N-1-i]
                 else:
                     Pay[x] = 0
-
+print(Pay)
 print(Pay_total)
