@@ -17,14 +17,14 @@ def bfs(R,C,L):
                 if arr[di][dj] !=0 and visited[di][dj] == 0:
                     T_1 = arr[di][dj]
                     Temp_1 = dict_1.get(T_1)
-                    check=[]
+                    check=0
                     for i in range(len(Temp_1)):
                         yi_2, xi_2 = Temp_1[i]
                         di_1 = di+yi_2
                         dj_1 = dj+xi_2
-                        if 0 <= di_1 < N and 0 <= dj_1 < M:
-                            if arr[di_1][dj_1]!=0:
-                                check.append(1)
+                        if 0 <= di_1 <N and 0 <= dj_1 <M:
+                            if di_1==y and dj_1==x:
+                                check=1
                     if check:
                         Q.append((di,dj))
                         visited[di][dj] = visited[y][x]+1
@@ -53,12 +53,11 @@ for t in range(1,T+1):
 
     ANS = bfs(R,C,L)
 
-    print(arr)
     COUNT = 0
     for i in range(N):
         for j in range(M):
             if ANS[i][j]!=0 and ANS[i][j] <= L:
                 COUNT+=1
 
-    print(COUNT)
+    print(f'#{t} {COUNT}')
 
