@@ -45,11 +45,46 @@ def scanner(BIT_LIST):
         for i in range(len(COUNT)):
             COUNT[i] = COUNT[i]//D_num
 
-        print(COUNT)
-        if COUNT in PASSWORD:
-            for x in range(len(BIT_LIST[i])-1,-1,-1):
-                if BIT_LIST[i][x] != 0:
-                    
+        if (COUNT[0],COUNT[1],COUNT[2],COUNT[3]) in PASSWORD:
+            NUM_LIST = []
+            for y in range(len(BIT_LIST)):
+                for x in range(len(BIT_LIST[y])-1,-1,-1):
+                    if BIT_LIST[y][x] != '0':
+                        num = x
+                        while True:
+                            if BIT_LIST[y][(num-7*D_num)+1:num+1] != str('0'*7*D_num):
+                                NUM_LIST.append(BIT_LIST[y][(num-7*D_num)+1:num+1])
+                            num = num-7
+
+                            if num - 7*D_num < 0:
+                                break
+                        break
+        print(NUM_LIST)
+        for i in range(len(NUM_LIST)):
+            COUNT = [0, 0, 0, 0]
+            for j in range(len(NUM_LIST[i]) - 1, -1, -1):
+                if NUM_LIST[i][j] != '0':
+                    idx = j
+                    NUM = 1
+                    COUNT_NUM = 3
+                    while True:
+                        if NUM_LIST[i][idx] == NUM_LIST[i][idx - 1]:
+                            NUM += 1
+                            idx -= 1
+                        else:
+                            COUNT[COUNT_NUM] = NUM
+                            NUM = 1
+                            idx -= 1
+                            COUNT_NUM -= 1
+                        if COUNT_NUM == -1:
+                            break
+                    break
+            D_num = min(COUNT)
+            for i in range(len(COUNT)):
+                COUNT[i] = COUNT[i] // D_num
+            print(COUNT)
+
+
 
 
 
@@ -78,16 +113,16 @@ BIT = {
 }
 
 PASSWORD = {
-    '[3,2,1,1]': 0,
-    '[2,2,2,1]': 1,
-    '[2,1,2,2]': 2,
-    '[1,4,1,1]': 3,
-    '[1,1,3,2]': 4,
-    '[1,2,3,1]': 5,
-    '[1,1,1,4]': 6,
-    '[1,3,1,2]': 7,
-    '[1,2,1,3]': 8,
-    '[3,1,1,2]': 9,
+    (3,2,1,1): 0,
+    (2,2,2,1): 1,
+    (2,1,2,2): 2,
+    (1,4,1,1): 3,
+    (1,1,3,2): 4,
+    (1,2,3,1): 5,
+    (1,1,1,4): 6,
+    (1,3,1,2): 7,
+    (1,2,1,3): 8,
+    (3,1,1,2): 9,
 }
 
 for t in range(1,T+1):
