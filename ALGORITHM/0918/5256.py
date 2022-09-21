@@ -6,8 +6,7 @@ T = int(input())
 for t in range(1,T+1):
     N,A,B = map(int,input().split())
 
-    arr = [0]*(N+1)
-    ans = [1,1]
+    ans = [1,1] #N이 1일때 X Y
     nxt = [1]
     for i in range(1,N):
         for j in range(len(ans)-1):

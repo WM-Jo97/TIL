@@ -9,4 +9,5 @@ for i in range(3,91):
     result = DP[i-1] +DP[i-2]
     DP.append(result)
 
+print(DP)
 print(DP[N])
