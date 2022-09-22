@@ -26,6 +26,7 @@ for t in range(1,T+1):
     N =int(input())
     son1 = [0] * (N + 1)
     son2 = [0] * (N + 1)
+    root = [0] * (N + 1)
     for i in range(2, N + 1):
         if i % 2 == 0:
             for j in range(1, N + 1):
@@ -37,6 +38,9 @@ for t in range(1,T+1):
                 if son2[j] == 0:
                     son2[j] = i
                     break
+        root[i] = j
+
+    print(root)
     Number = list(map(int,input().split()))
     #print(son1)
     #print(son2)
