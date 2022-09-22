@@ -49,7 +49,7 @@ def scanner(BIT_LIST):
         if COUNT in PASSWORD:
             for x in range(len(BIT_LIST[i])-1,-1,-1):
                 if BIT_LIST[i][x] != 0:
-                    
+
 
 
 
