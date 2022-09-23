@@ -10,7 +10,7 @@ def CHECK(arr, QUEEN,count,idx,Q):
             if QUEEN >= 1:
                 if i == 0:
                     #print(Q)
-                    print(idx)
+                    #print(idx)
                     if i in idx or (QUEEN,i) in Q:
                         pass
                     else:
@@ -25,7 +25,7 @@ def CHECK(arr, QUEEN,count,idx,Q):
                         idx.pop(-1)
                 elif i == N-1:
                     #print(Q)
-                    print(idx)
+                    #print(idx)
                     if i in idx or (QUEEN,i) in Q:
                         pass
                     else:
@@ -40,7 +40,7 @@ def CHECK(arr, QUEEN,count,idx,Q):
                         idx.pop(-1)
                 else:
                     #print(Q)
-                    print(idx)
+                    #print(idx)
                     if i in idx or (QUEEN,i) in Q:
                         pass
                     else:
