@@ -5,24 +5,20 @@ def Tast_distrbute(task_num,Employee):
     global Probability
     global ANS
     if task_num == N:
-        #print(Probability)
-        PERCENT = 1
-        for i in Probability:
-            TEMP = i/100
-            PERCENT = PERCENT*TEMP
-        PERCENT = PERCENT*100
-
-        if PERCENT > ANS:
-            ANS = PERCENT
-        return
+        if Probability*100 > ANS:
+            ANS = Probability*100
+            return
+        else:
+            return
     else:
         for i in range(len(Employee)):
             if Task[task_num][Employee[i]] != 0:
-                Probability.append(Task[task_num][Employee[i]])
+                TEMP = Task[task_num][Employee[i]] / 100
+                Probability = Probability*TEMP
                 A = Employee[i]
                 Employee.remove(A)
                 Tast_distrbute(task_num+1,Employee)
-                Probability.pop(-1)
+                Probability = Probability/TEMP
                 Employee.append(A)
                 Employee.sort()
 
@@ -38,7 +34,7 @@ for t in range(1,T+1):
         Task.append(Temp)
 
     Employee = list(range(N))
-    Probability = []
+    Probability = 1
     task_num = 0
     ANS = 0
     Tast_distrbute(task_num,Employee)
