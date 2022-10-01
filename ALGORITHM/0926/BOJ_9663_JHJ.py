@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('example_6.text')
+
 def dfs(queen, row, n):
     count = 0
     if n == row:
@@ -12,10 +15,9 @@ def dfs(queen, row, n):
         else:
             count += dfs(queen, row + 1, n)
     return count
-def solution(n):
-    return dfs([0]*n, 0, n)
 
 
 N =int(input())
 
-print(solution(N))
+ans = dfs([0]*N, 0, N)
+print(ans)

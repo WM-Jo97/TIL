@@ -9,7 +9,7 @@ def CHECK(QUEEN,arr,IDX,location):
         COUNT += 1
         return
     else:
-        if QUEEN == 0:
+        if QUEEN == 0:         #가장 처음 queen 놓기
             for i in range(N):
                 location.append((QUEEN,i))
                 IDX.append(i)
