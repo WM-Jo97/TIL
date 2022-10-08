@@ -7,6 +7,7 @@ from django.contrib.auth import logout as auth_logout
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from .models import Article
 # Create your views here.
 
 def login(request):
@@ -59,20 +60,23 @@ def delete(request):
     return redirect('articles:index')
 
 @login_required
+@require_http_methods(['GET','POST'])
 def update(request):
-    if request.method == 'POST':
-        form = CustomUserChangeForm(request.POST, instance=request.title)
-        if form.is_valid():
-            form.save()
-            return redirect('articles:index')
-    else:
-        form = CustomUserChangeForm(instance = request.title)
-    context = {
-        'form' : form,
-        'title' : '회원정보 수정',
-        'btn_title' : '수정'
-    }
-    return render(request,'accounts/form.html', context)
+    article = Article.objects.get(pk,pk)
+    if request.user == article.user:
+        if request.method == 'POST':
+            form = CustomUserChangeForm(request.POST, instance=request.title)
+            if form.is_valid():
+                form.save()
+                return redirect('articles:index')
+        else:
+            form = CustomUserChangeForm(instance = request.title)
+        context = {
+            'form' : form,
+            'title' : '회원정보 수정',
+            'btn_title' : '수정'
+        }
+        return render(request,'accounts/form.html', context)
 
 @login_required
 def password(request):

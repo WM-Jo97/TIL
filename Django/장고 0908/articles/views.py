@@ -65,3 +65,14 @@ def update(request, pk):
         'form': form,
     }
     return render(request, 'articles/update.html', context)
+
+def comments_create(request,pk):
+    article = Article.objects.get(pk = pk)
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit = False)
+        comment.article = article
+        comment.user = request.user
+        comment.save()
+    
+    

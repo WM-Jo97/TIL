@@ -6,10 +6,12 @@
 {% comment "" %}
 acthion 값이 비어있으면 현재 페이지로 요청을 보냄
 {% endcomment %}
+{% if request.users == article.user %}
 <form action="" method='POST'>
     {% csrf_token %}
     {{form.as_p}}
     <button>수정하기</button>
 </form>
+{% endif %}
 {% endblock content %}
 
