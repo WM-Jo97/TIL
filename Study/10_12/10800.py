@@ -6,14 +6,41 @@ input = stdin.readline
 
 N = int(input())
 BALL = []
+BALL_ORI = []
+MAX_B = 0
 for i in range(N):
     A, B = map(int,input().split())
-    BALL.append([A,B,0])
+    BALL.append([B,A,i])
+    if MAX_B < B:
+        MAX_B = B
+    if MAX_B < A:
+        MAX_B = A
+BALL.sort()
 
-for i in range(N):
-    for j in range(N):
-        if BALL[i][0] != BALL[j][0] and BALL[i][1] > BALL[j][1]:
-            BALL[i][2] += BALL[j][1]
+VALUE = 0
+COLOR = [0]*(N+1)
+PRE = 0
+PRE_COLOR = 0
 
+for j in range(N):
+    B, A = BALL[j][0] , BALL[j][1]
+    C = VALUE - COLOR[A]
+    if PRE == B and PRE_COLOR == A:
+        VALUE -= B
+        COLOR[A] -= B
+        BALL[j].append(VALUE-COLOR[A])
+        VALUE += B
+    elif PRE == B:
+        VALUE -= B
+        BALL[j].append(VALUE-COLOR[A])
+        VALUE += B
+    else:
+        BALL[j].append(C)
+    COLOR[A] += B
+    VALUE += B
+    PRE = B
+    PRE_COLOR = A
+
+BALL.sort(key=lambda x:x[2])
 for i in range(N):
-    print(BALL[i][2])
+    print(BALL[i][3])
