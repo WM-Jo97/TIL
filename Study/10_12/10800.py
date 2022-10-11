@@ -7,15 +7,11 @@ input = stdin.readline
 N = int(input())
 BALL = []
 BALL_ORI = []
-MAX_B = 0
 for i in range(N):
     A, B = map(int,input().split())
     BALL.append([B,A,i])
-    if MAX_B < B:
-        MAX_B = B
-    if MAX_B < A:
-        MAX_B = A
 BALL.sort()
+print(BALL)
 
 VALUE = 0
 COLOR = [0]*(N+1)
