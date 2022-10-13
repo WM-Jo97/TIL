@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a388aefd-efa8-410e-9a26-6731161bd847" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0925/9663.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0925/BECK_9663.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0925/example_6.text" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0926/BECK_1759.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0926/BECK_9663_JHJ.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ALGORITHM/0926/example_1.text" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a388aefd-efa8-410e-9a26-6731161bd847" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,5 +135,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
