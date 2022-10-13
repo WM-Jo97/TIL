@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>DETAIL</h2>
+  <h3>{{ article.pk }} 번째 글</h3>
+  <hr>
+  <p>제목: {{ article.title }}</p>
+  <p>작성자: {{ article.author }}</p>
+  <p>내용: {{ article.content }}</p>
+  <p>작성 시각: {{ article.created_at }}</p>
+  <p>수정 시각: {{ article.updated_at }}</p>
+  <hr>
+  
+  {% comment %} 작성자만 글을 수정하고 삭제할 수 있도록 안내 {% endcomment %}
+  {% if user == article.author %}
+    <a href="{% url 'articles:update' article.pk %}">UPDATE</a><br>
+    <form action="{% url 'articles:delete' article.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+    </form>
+  {% endif %}
+
+  <a href="{% url 'articles:index' %}">[back]</a>
+  
+  {% comment %} 댓글 입력 창 추가 {% endcomment %}
+  <hr>
+  {% comment %} 
+    action을 비워두면 detail로 댓글 생성 요청이 가기 때문에 
+    action을 다른 주소로 요청할 수 있게 작성해야함
+    이 때 게시글 정보도 같이 전달해줘야 함!!!!! (variable routing)
+
+    로그인한 사람만 댓글 작성을 할 수 있도록!!
+  {% endcomment %}
+  {% if user.is_authenticated %}
+    <form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button>댓글달기</button>
+  </form>
+  {% else %}
+   <a href="{% url 'accounts:login' %}">[로그인을 해주세요.]</a>
+  {% endif %}
+  {% comment %} 
+   여기에 작성한 댓글들이 보여지게 처리
+  {% endcomment %}
+  <ul>
+    {% for comment in comments %}
+      <li class="d-flex">
+        <div>{{ comment.content }}</div>
+        {% comment %} 댓글 삭제를 위한 버튼 {% endcomment %}
+        {% if user.is_authenticated %}
+          <form action="{% url 'articles:comment_delete' comment.pk %}" method="POST">
+            {% csrf_token %}
+            <button>X</button>
+          </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  
+
+  {% comment %} 
+    역참조를 이용해서 댓글 정보를 가져올 수도 있다!
+    {% for comment in article.comment_set.all %}
+    <p>{{ comment }}</p>
+    {% endfor %} 
+  {% endcomment %}
+  {% endblock  %}
+
+
