@@ -1,42 +1,43 @@
 import sys
 sys.stdin=open('example_10800.text')
 
-from sys import stdin
-input = stdin.readline
-
-N = int(input())
-BALL = []
-BALL_ORI = []
+import sys
+N = int(input(''))
+ball_list = []
 for i in range(N):
-    A, B = map(int,input().split())
-    BALL.append([B,A,i])
-BALL.sort()
-print(BALL)
+    C, S = map(int, sys.stdin.readline().rstrip().split(' '))
+    ball_list.append([i, S, C])
 
-VALUE = 0
-COLOR = [0]*(N+1)
-PRE = 0
-PRE_COLOR = 0
+# size, color로 오름차순 정렬
+ball_list.sort(key=lambda x:(x[1], x[2]))
 
-for j in range(N):
-    B, A = BALL[j][0] , BALL[j][1]
-    C = VALUE - COLOR[A]
-    if PRE == B and PRE_COLOR == A:
-        VALUE -= B
-        COLOR[A] -= B
-        BALL[j].append(VALUE-COLOR[A])
-        VALUE += B
-    elif PRE == B:
-        VALUE -= B
-        BALL[j].append(VALUE-COLOR[A])
-        VALUE += B
-    else:
-        BALL[j].append(C)
-    COLOR[A] += B
-    VALUE += B
-    PRE = B
-    PRE_COLOR = A
+color_list = [0] * 200001
+player_list = [0] * N
 
-BALL.sort(key=lambda x:x[2])
+sum = 0
+i, j = 0, 0
+
+#print(ball_list)
+# 누적 합
+while i < N:
+
+    a_ball = ball_list[i]
+    b_ball = ball_list[j]
+
+    # B >= A 일 때 종료
+    while b_ball[1] < a_ball[1]:
+
+        # 총 사이즈 누적
+        sum += b_ball[1]
+        # 컬러 별 사이즈 누적
+        color_list[b_ball[2]] += b_ball[1]
+
+        j += 1
+        b_ball = ball_list[j]
+
+    player_list[a_ball[0]] = sum - color_list[a_ball[2]]
+    i += 1
+
+#print(player_list)
 for i in range(N):
-    print(BALL[i][3])
+    print(player_list[i])

@@ -1,0 +1,5 @@
+(a) = ArticleListSerializer
+(b) = serializers.ModelSerializer
+(c) = many = True
+(d) = Response
+(e) = data
