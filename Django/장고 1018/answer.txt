@@ -1,0 +1,5 @@
+(a) = MusicListSerializer
+(b) = serializer.ModelSerializer
+(c) = data = request.data
+(d) = Response
+(e) = data
