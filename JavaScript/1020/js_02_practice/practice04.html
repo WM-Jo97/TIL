@@ -36,17 +36,69 @@
     ]
 
     // solution 함수 완성
+    
     function solution(K, N, M, chargers) {
-      const count = 0
-      for (const charge of chargers) {
-        console.log(charge)
-        if charge < K
+      let count = 0
+      let location = 0
+      let run = K
+      let plag = 0
+    
+      while (location < N){
+        if ((location+run) in chargers){
+          count ++
+          location = location+run
+          run = K
+  
+        }
+        else{
+          if(run > 0){
+            run --
+          }
+          else{
+            plag = 1
+            location += N*2
+          }}
+        }
+          
+      console.log(location,count,plag)
+    }
+      /*
+        let plag_1 = 0
+        for (const charge of chargers) {
+          if (charge == (location+run)){
+            count ++
+            location = location+run
+            run = K
+            plag = 1
+          }
+        }
+        if(plag_1 == 0) {
+          if (run >0) {
+          run --
+          }
+          else {
+            plag = 1
+              break
+          }
+        }
+      }
+      if (plag == 1){
+        console.log(0)
+      }
+      else {
+        if (count > K){
+          console.log(0)
+        }
+        else {
+          console.log(count)
+        }
       }
     }
-
+    */
     for (const input of inputs) {
       solution(...input)
     }
+  
   </script>
 </body>
 
