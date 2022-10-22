@@ -41,16 +41,36 @@
       let count = 0
       let location = 0
       let run = K
-      let plag = 0
+      
     
-      while (location < N){
-        if ((location+run) in chargers){
-          count ++
-          location = location+run
-          run = K
-  
+      while (location+run < N){
+        let plag = 0
+        //console.log(location+run)
+        for(let i of chargers){
+          if ((location+run) == i){
+            count ++
+            location += run
+            run = K 
+            plag = 1}
         }
-        else{
+        if (plag < 1){
+          if(run > 1) {
+            //console.log(location,count,run)
+            run --
+          }else{
+            location += N*2
+          }
+        }    
+      }
+      if(location > N){
+        console.log(0)
+      }else{
+        console.log(count)
+      } 
+    }
+    
+      /*
+      else{
           if(run > 0){
             run --
           }
@@ -58,12 +78,7 @@
             plag = 1
             location += N*2
           }}
-        }
           
-      console.log(location,count,plag)
-    }
-    
-      /*
         let plag_1 = 0
         for (const charge of chargers) {
           if (charge == (location+run)){
