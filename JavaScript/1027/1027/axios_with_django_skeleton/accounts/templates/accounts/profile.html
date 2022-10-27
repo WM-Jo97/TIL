@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ person.username }}님의 프로필</h1>
+  <div>
+    팔로워 : <div id="followers"></div> / 팔로잉 : {{ person.followings.all|length }}
+  </div>
+
+  {% if request.user != person %}
+  <div>
+    <form action="{% url 'accounts:follow' person.pk %}" data-article-id="{{ person.pk }}" class = "follow-btn" method="POST">
+      {% csrf_token %}
+      {% if request.user in person.followers.all %}
+        <input type="submit" class = "Btn" value="언팔로우">
+      {% else %}
+        <input type="submit" class = "Btn" value="팔로우">
+      {% endif %}
+    </form>
+  <div>
+  {% endif %}
+
+  <h2>{{ person.username }}이 작성한 모든 게시글</h2>
+  {% for article in person.article_set.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}이 작성한 모든 댓글</h2>
+  {% for comment in person.comment_set.all %}
+    <div>{{ comment.content }}</div>
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}이 좋아요 한 모든 게시글</h2>
+  {% for article in person.like_articles.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+
+  <a href="{% url 'articles:index' %}">back</a>
+{% endblock content %}
+
+{% block script %}
+<script>
+  const formTag = document.querySelector('.follow-btn')
+  formTag.addEventListener('submit', function(event){
+    event.preventDefault()
+    const user = event.target.dataset.articleId
+
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    axios({
+      method : 'post',
+      url : `/accounts/${user}/follow/`,
+      headers : {'X-CSRFToken': csrftoken},
+    })
+    .then(function(response){
+      const isfollow = response.data.is_follow
+      const Btn = document.querySelector('.Btn')
+      console.log(response.data.follower_cnt)
+      console.log(isfollow)
+      console.log(Btn)
+      if (isfollow){
+        Btn.value = '팔로우'
+        followers.innerText = response.data.follower_cnt
+      }else{
+        Btn.value = '팔로우 취소'
+        followers.innerText = response.data.follower_cnt
+      }
+    })
+    .catch(function(error){
+      console.log(error.response)
+    })
+  })
+
+</script>
+{% endblock script %}
