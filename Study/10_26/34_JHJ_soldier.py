@@ -12,4 +12,5 @@ for i in range(1,N):
         if arr[j] < arr[i]:
             DP_table[i] = max(DP_table[i],DP_table[j]+1)
 
+print(DP_table)
 print(N-max(DP_table))

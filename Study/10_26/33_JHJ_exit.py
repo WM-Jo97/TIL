@@ -21,4 +21,5 @@ for i in range(N-1,-1,-1):
     else:
         DP_table[i] = max_value
 
+print(DP_table)
 print(DP_table[0])
