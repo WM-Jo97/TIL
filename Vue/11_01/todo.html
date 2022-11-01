@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+        text-decoration: line-through;
+        color : gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>ToDo List</h1>
+  <div id="app">
+    <select v-model="status">
+        <option value="all">전체</option>
+        <option value="inProgress">진행중</option>
+        <option value="completed">완료</option>
+    </select>
+    <input type="text" v-model="content">
+    <button @click="addTodo">+</button>
+    <ul>
+        <li v-for="todo in todoListByStatus" :key="todo.date"> 
+            <input type= "checkbox" :checked="todo.isCompleted" @click = "toggleTodo(todo)"> 
+            <span :class= "{ completed: todo.isCompleted }">{{ todo.content }}</span>
+        </li>
+    </ul>
+
+    <button @click = "deleteCompleted"> 완료된 할 일 지우기 </button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        content: '',
+        todoList: [],
+        isCompleted: false,
+        status: 'all',
+      },
+      methods : {
+        addTodo : function(){
+            const todo = {
+                content: this.content,
+                isCompleted : false,
+                date : Date().now
+            }
+            this.todoList.push(todo)
+            this.content = ''
+        },
+        toggleTodo : function(todo){
+            todo.isCompleted
+        },
+        deleteCompleted(){
+            this.todoList.filter(todo => {
+                return !todo.isCompleted
+            })
+        }
+      },
+      computed : {
+        todoListByStatus : function(){
+            const Newlist = this.todoList.filter(todo => {
+                if (this.status === 'isProgress'){
+                    return !todo.isCompleted
+                } else if (this.status === 'completed'){
+                    return todo.isCompleted
+                } else {
+                    return true
+                }
+            
+            })
+            return Newlist
+            console.log(Newlist)
+        },
+      }
+    })
+    
+      
+  </script>
+</body>
+</html>

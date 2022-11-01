@@ -9,10 +9,11 @@
 <body>
   <div id="app">
     <h1>Popular Movies</h1>
-    <div v-for="(page) in movieinfo" :key="page">
-      <li>
-        {{ page }}
-      </li>
+    <div v-for="movie in movieinfo.results">
+      <!--<li v-if="movie.vote_average >= 8 ">
+        {{ movie.vote_average }} - {{ movie.title }}
+      </li>-->
+      <li v-for="movie in highmovie" :key="movie.id"> {{ movie.title }} </li>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -420,6 +421,14 @@
     "total_pages": 500,
     "total_results": 10000
   }
+      },
+      computed :{
+        highmovie : function() {
+            const results = this.movieinfo.results
+            const newMovie = results.filter(function(movie){
+                return movie.vote_average >= 8
+            })
+        }
       },
     })
   </script>
