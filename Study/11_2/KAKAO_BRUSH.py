@@ -13,7 +13,7 @@ def solution(enroll, referral, seller, amount):
         else:
             mom = enroll.index(referral[i])
             parents[mom].append(enroll[i])
-
+    print(parents)
     for j in range(len(seller)):
         seller_index = enroll.index(seller[j])
         benefit[seller_index] += amount[j]*90
@@ -22,8 +22,8 @@ def solution(enroll, referral, seller, amount):
         while benefit_per > 1:
             for x in range(len(parents)):
                 if sell_person in parents[x]:
-                    benefit[x] += round(benefit_per*0.9, 0)
-                    benefit_per = round(benefit_per*0.1, 0)
+                    benefit[x] += benefit_per - benefit_per//10
+                    benefit_per = benefit_per//10
                     sell_person = enroll[x]
                     break
             else:
