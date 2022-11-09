@@ -6,7 +6,7 @@ arr = [[0]*N for _ in range(N)]
 M = int(input())
 for _ in range(M):
     y,x = map(int,input().split())
-    arr[y][x] = 2
+    arr[y-1][x-1] = 2
 
 Change = int(input())
 Change_list = []
@@ -17,17 +17,16 @@ for _ in range(Change):
 NUM = 0
 second = 1
 move = (0,1)
-print(Change_list)
-print(arr)
+#print(Change_list)
+#print(arr)
 snake = [(0,1)]
 Num_cg, Chg = Change_list.pop(0)
 while True:
-    y,x = snake[-1]
-    print(snake[-1])
+    y,x = snake.pop(-1)
 
-    if 0<=y<N and 0<=x<N or (y,x) not in snake:
+    if 0<=y<N and 0<=x<N and (y,x) not in snake:
         if second == Num_cg:
-            print(Chg)
+            #print(Chg)
             if Chg == 'D':
                 if move == (0,1):
                     move = (1,0)
@@ -55,10 +54,11 @@ while True:
             location = (y+y_o, x+x_o)
 
             if arr[y][x] == 2:
+                snake.pop(0)
+                snake.append((y,x))
                 snake.append(location)
                 second += 1
             else:
-                snake.pop(0)
                 snake.append(location)
                 second += 1
 
@@ -66,14 +66,15 @@ while True:
             y_o, x_o = move
             location = (y + y_o, x + x_o)
             if arr[y][x] == 2:
+                snake.pop(0)
+                snake.append((y,x))
                 snake.append(location)
                 second += 1
             else:
-                snake.pop(0)
                 snake.append(location)
                 second += 1
     else:
-        print(snake)
+        #print(snake)
         print(second)
-        print(-1)
+        #print(-1)
         break
