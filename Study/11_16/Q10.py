@@ -1,53 +1,94 @@
 def solution(key, lock):
     answer = False
-    result_num = 2
-    while result_num != 6:
+    result_num = 0
+
+    num_list = []
+    for i in range(len(key)-1,0,-1):
+        num_list.append(-i)
+    for i in range(len(key)):
+        num_list.append(i)
+
+    count = 0
+    while result_num != 4:
         reverse_key = key[::-1]
         rotated_key = list(zip(*reverse_key))
-        print(key)
-        print(rotated_key)
 
-        break
+        open = []
+        for x in range(len(lock)):
+            temp = []
+            for y in range(len(lock)):
+                temp.append(lock[x][y])
+            open.append(temp)
 
-        # for i in range(len(key)):
-        #     for j in range(len(key)):
-        #         x_p = i
-        #         y_p = j
-        #         print(x_p, y_p)
-        #         answer_list = []
-        #         lock_plus = [[0]*len(lock) for _ in range(len(lock))]
-        #         lock_minus = [[0] * len(lock) for _ in range(len(lock))]
-        #         for y in range(len(lock)):
-        #             for x in range(len(lock)):
-        #                 if 0<=y+y_p<len(lock) and 0<=x+x_p<len(lock):
-        #                     lock_plus[y][x] = lock[y][x] + key[y+y_p][x+x_p]
-        #
-        #
-        #                 if 0<=y-y_p<len(lock) and 0<=x-x_p<len(lock):
-        #                     lock[y][x] = lock[y][x] + key[y-y_p][x-x_p]
-        #
-        #         count_plus=0
-        #         for i in range(len(lock_plus)):
-        #             for j in range(len(lock_plus)):
-        #                 if lock_plus[i][j] == 1:
-        #                     pass
-        #                 else:
-        #                     break
-        #
-        #         if count_plus == len(lock_plus)**2:
-        #             answer_list.append(lock_plus)
-        #
-        #         count_minus = 0
-        #         for i in range(len(lock_minus)):
-        #             for j in range(len(lock_minus)):
-        #                 if lock_minus[i][j] == 1:
-        #                     count_minus+=1
-        #                 else:
-        #                     break
-        #         if count_minus == len(lock_minus)**2:
-        #             answer_list.append(lock_minus)
-        #         print(answer_list)
+        for number in num_list:
+            for i in range(len(key)):
+                for j in range(len(key)):
+                    if 0<= i+number <len(key):
+                        open[i][j] = open[i][j] + rotated_key[i+number][j]
+
+            total = 0
+            for q in range(len(open)):
+                for p in range(len(open[q])):
+                    if open[q][p] == 1:
+                        total += 1
+
+            if total == len(key) * len(key):
+                count += 1
+
+            open = []
+            for x in range(len(lock)):
+                temp = []
+                for y in range(len(lock)):
+                    temp.append(lock[x][y])
+                open.append(temp)
+
+            for i in range(len(key)):
+                for j in range(len(key)):
+                    if 0 <= j + number < len(key):
+                        open[i][j] = open[i][j] + rotated_key[i][j+number]
+
+            total = 0
+            for q in range(len(open)):
+                for p in range(len(open[q])):
+                    if open[q][p] == 1:
+                        total += 1
+
+            if total == len(key) * len(key):
+                count += 1
+
+            open = []
+            for x in range(len(lock)):
+                temp = []
+                for y in range(len(lock)):
+                    temp.append(lock[x][y])
+                open.append(temp)
+
+
+            for i in range(len(key)):
+                for j in range(len(key)):
+                    if 0 <= i + number < len(key) and 0<= j+ number < len(key):
+                        open[i][j] = open[i][j] + rotated_key[i+number][j+number]
+
+            total = 0
+            for q in range(len(open)):
+                for p in range(len(open[q])):
+                    if open[q][p] == 1:
+                        total += 1
+
+            if total == len(key) * len(key):
+                count += 1
+
+            open = []
+            for x in range(len(lock)):
+                temp = []
+                for y in range(len(lock)):
+                    temp.append(lock[x][y])
+                open.append(temp)
+
         result_num += 1
+    if count != 0:
+        answer = True
+
     return answer
 
 key = [[0, 0, 0], [1, 0, 0], [0, 1, 1]]
