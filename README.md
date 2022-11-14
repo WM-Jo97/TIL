@@ -1,5 +1,5 @@
 # TIL
-Today's I Learned
+천천히 가더라도 제대로 갑니다
 
 ![펭하](/Git%20basic/img/ps.jpg)
 
