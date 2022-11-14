@@ -133,8 +133,8 @@ Today's I Learned
                  |_ String Type    |_ Complex
 
   1) Numeric Type (수치형 자료형)
-    ㄱ) Int (정수)
   
+    ㄱ) Int (정수)
         -> 진수표현 가능 (2진수 : 0b, 8진수 : 0o , 16진수 : 0x )
   
     ㄴ) Float (실수 자료형)
