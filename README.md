@@ -4,7 +4,7 @@ Today's I Learned
 ![펭하](/Git%20basic/img/ps.jpg)
 
 <details>
-<summary> Python Basic  </summary>
+  <summary> <h2>Python Basic</h2>  </summary>
 <div markdown="1">
   
 1) Python 특징
