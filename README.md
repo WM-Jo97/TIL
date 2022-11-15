@@ -333,6 +333,95 @@
       * for-else : 끝까지 반복문을 실행한 후 else문 실행
         (break를 통해 중간에 종료되면 else문은 실행되지 않음)
       * pass : 아무것도 하지 않음
+2. 함수
+   
+   -> 함수는 Decomposition(분해), Abstracion(추상화)가 가장 큰 키워드
+     Decomposition : 기능을 분해하고 재사용 가능하게 하기
+     Abstraction : 복잡한 내부 정보를 모르더라도 사용 가능하게 하기
+1) 함수의 종류
+   
+   * 내장함수 : 파이썬에 기본 내장된 함수
+   * 외장함수 : import문을 통해 외부 라이브러리에서 불러온 함수
+   * 사용자 정의 함수 : 사용자가 직접 만든 함수               
+
+2) 함수의 정의
+   
+   * 함수(Function)
+   - 특정한 기능을 하는 코드의 조각
+   
+   - 특정 코드를 매번 다시 작성하지 않고 필요시에만 호출하여 간편하게 사용
+   * 기본 구조
+  
+     def name(data, parameters):
+     ```
+     ```
+      return answer
+   
+   * 선언과 호출 (define & call)
+   - 함수의 선언은 def 키워드를 활용함
+   
+   - 들여쓰기를 통해 Function body를 작성
+   
+   - 함수는 parameter를 넘겨줄 수 있음
+   
+   - 함수는 동작후에 return을 통해 결괏값을 전달함
+
+3) 함수의 결과값(Outout)
+   
+   *Void function
+    명시적인 return 값이 없는 경우, None을 반환하고 종료
+   
+   *Value returning function
+    함수 실행 후, return문을 통해 값 반환
+    return을 하게 되면, 값 반환 후 함수가 바로 종료
+   
+   *print vs return
+    print함수와 return의 차이점
+    -> print를 사용하면 호출될 때마다 값이 출력됨(주로 테스트를 위해 사용)
+    -> 데이터 처리를 위해서는 return 사용
+
+4) 함수의 입력(Input)
+   
+   *Parameter 와 Argument
+   
+   - Parameter : 함수를 정의할 때, 함수 내부에서 사용되는 변수
+   
+   - Argument : 함수를 호출할 때, 넣어주는 값
+     ->함수 호출 시 함수의 parameter를 통해 전달되는 값
+       Argument는 소괄호 안에 할당 func_name(argument)
+     
+     * 필수 Argument : 반드시 전달되어야 하는 argument
+     
+     * 선택 Argument : 값을 전달하지 않아도 되는 경우는 기본값이 전달
+       
+       Argument는 위치에 따라, 직접 값을 지정하여, default 값을 미리 지정해서 사용
+
+5) 가변인자 (*args)
+   
+   *가변인자 : 여러 개의 Positional Argument를 하나의 필수 parameter로 받아서 사용
+    -> 몇 개의 Positional Argument를 받을지 모르는 함수를 정의할 때 유용
+   
+   *패킹, 언패킹
+   -> 패킹 : 여러 개의 데이터를 묶어서 변수에 할당하는 것
+   -> 언패킹 : 시퀀스 속의 요소들을 여러 개의 변수에 나누어 할당하는 것
+   -> 언패킹시 변수의 개수와 할당하고자 하는 요소의 갯수가 동일해야함
+   -> 언패킹시 왼쪽의 변수에 * 를 붙이면 할당하고 남은 요소를 리스트에 담을 수 있음
+   
+   * 는 스퀀스 언패킹 연산자라고도 불리며, 말 그대로 시퀀스를 풀어 헤치는 연산자
+
+6) 가변 키워드 인자 (**kwargs)
+   
+   * 몇 개의 키워드 인자를 받을지 모르는 함수를 정의할 때 유용
+   * **kwargs는 딕셔너리로 묶여 처리되며, parameter에 **를 붙여 표현
+</div>
+</details>
+<hr>
+<details>
+<summary>토글 접기/펼치기</summary>
+<div markdown="1">
+
+안녕
 
 </div>
 </details>
+
