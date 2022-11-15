@@ -271,6 +271,7 @@
   제어문은 순서도(Flowchart)로 표현 가능
 
  1) 조건문
+  
     참/ 거짓에 따라 분기가 나뉨
     
     if 조건 == True:
@@ -305,7 +306,9 @@
   
       조건에 따라 값을 정할 때 활용
       삼항 연산자로도 불림
+  
       'true인 경우 값 if 조건 else false인 경우 값'
+  
       ex) X= A
       Y = A if type(X)==int else Y = B
       => Y = B
@@ -315,8 +318,11 @@
     특정 조건을 만족할 때까지 반복
   
     ㄱ) while문 : 종료 조건에 해당하는 코드를 통해 종료
+  
     ㄴ) for문 : 반복 가능한 객체롤 모두 순회하면 자동 종료
+  
       -> break, continue, for-else 등을 통해 제어 가능
+  
       *List Comprehension : 표현식과 제어문을 통해 리스트를 간결하게 생성
           ex) [code for 변수 in iterable if 조건식]
     
