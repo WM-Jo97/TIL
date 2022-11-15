@@ -264,7 +264,7 @@
 <hr>
 
 <details>
-<summary> <h2>Python</h2> 기본문법2 </summary>
+<summary><h2>Python기본문법2</h2></summary>
 <div markdown="1">
 1. 제어문
  -> 특정 상황에 따라 코드를 선택적으로 실행하거나 반복 실행하기 위해 사용
