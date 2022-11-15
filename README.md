@@ -271,7 +271,6 @@
   제어문은 순서도(Flowchart)로 표현 가능
 
  1) 조건문
-  
     참/ 거짓에 따라 분기가 나뉨
     
     if 조건 == True:
@@ -314,18 +313,20 @@
  2) 반복문
   
     특정 조건을 만족할 때까지 반복
+  
     ㄱ) while문 : 종료 조건에 해당하는 코드를 통해 종료
     ㄴ) for문 : 반복 가능한 객체롤 모두 순회하면 자동 종료
       -> break, continue, for-else 등을 통해 제어 가능
       *List Comprehension : 표현식과 제어문을 통해 리스트를 간결하게 생성
           ex) [code for 변수 in iterable if 조건식]
+    
     ㄷ) 반복문 제어
 
-    * break : 반복문을 종료
-    * continue : 이후 코드 블록은 수행하지 않고 다음 반복을 수행
-    * for-else : 끝까지 반복문을 실행한 후 else문 실행
-      (break를 통해 중간에 종료되면 else문은 실행되지 않음)
-    * pass : 아무것도 하지 않음
-  
+      * break : 반복문을 종료
+      * continue : 이후 코드 블록은 수행하지 않고 다음 반복을 수행
+      * for-else : 끝까지 반복문을 실행한 후 else문 실행
+        (break를 통해 중간에 종료되면 else문은 실행되지 않음)
+      * pass : 아무것도 하지 않음
+
 </div>
 </details>
