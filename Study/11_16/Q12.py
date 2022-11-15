@@ -12,35 +12,23 @@ def solution(n, build_frame):
                     construction[y+1][x] = 1
                     answer.append([x,y,beam])
 
-                elif construction[y][x] != 0:
+                elif y!= 0 and construction[y][x] != 0:
                     construction[y][x] = 1
-                    construction[y + 1][x] = 1
+                    construction[y+1][x] = 1
                     answer.append([x, y, beam])
             else:
-                if x+2 < n+1:
-                    if (construction[y][x]==1 and construction[y][x+1]!=2) or (construction[y][x+2] == 1 and construction[y][x+1]!=2):
-                        construction[y][x+1] = 2
-                        answer.append([x, y, beam])
+                if (construction[y][x]==1 and construction[y][x+1]!=2) or (construction[y][x+2] == 1 and construction[y][x+1]!=2):
+                    construction[y][x+1] = 2
+                    answer.append([x, y, beam])
 
-                    elif construction[y][x+1] == 1:
-                        construction[y][x+1] = 2
-                        answer.append([x,y,beam])
+                elif construction[y][x+1] == 1:
+                    construction[y][x+1] = 2
+                    answer.append([x,y,beam])
 
-                    elif construction[y][x] == 2 and construction[y][x+2]== 2 and construction[y][x+1]!=3:
-                        construction[y][x+1] = 3
-                        answer.append([x, y, beam])
-                else:
-                    if construction[y][x]==1 and construction[y][x+1]!=2:
-                        construction[y][x+1] = 2
-                        answer.append([x, y, beam])
+                elif construction[y][x] == 2 and construction[y][x+2]== 2 and construction[y][x+1]!=3:
+                    construction[y][x+1] = 3
+                    answer.append([x, y, beam])
 
-                    elif construction[y][x+1] == 1:
-                        construction[y][x+1] = 2
-                        answer.append([x,y,beam])
-
-                    elif construction[y][x] == 2 and construction[y][x+2] == 2 and construction[y][x+1]!=3:
-                        construction[y][x+1] = 3
-                        answer.append([x, y, beam])
         else:
             if beam== 0:
                 if construction[y+1][x-1] == 2 and construction[y+1][x+1] == 2:
@@ -55,7 +43,7 @@ def solution(n, build_frame):
 
     answer.sort()
     # print(answer)
-    # print(construction)
+    print(construction)
     return answer
 
 n = 5

@@ -1,17 +1,22 @@
 def solution(key, lock):
     answer = False
-    result_num = 0
 
     num_list = []
-    for i in range(len(key)-1,0,-1):
+    for i in range(len(lock)-1,0,-1):
         num_list.append(-i)
-    for i in range(len(key)):
+    for i in range(len(lock)):
         num_list.append(i)
 
+
     count = 0
+    result_num = 0
+
+
     while result_num != 4:
         reverse_key = key[::-1]
         rotated_key = list(zip(*reverse_key))
+        key = rotated_key
+        # print(rotated_key)
 
         open = []
         for x in range(len(lock)):
@@ -19,6 +24,7 @@ def solution(key, lock):
             for y in range(len(lock)):
                 temp.append(lock[x][y])
             open.append(temp)
+        # print(open)
 
         for number in num_list:
             for i in range(len(key)):
@@ -32,7 +38,7 @@ def solution(key, lock):
                     if open[q][p] == 1:
                         total += 1
 
-            if total == len(key) * len(key):
+            if total == len(open) * len(open):
                 count += 1
 
             open = []
@@ -53,7 +59,7 @@ def solution(key, lock):
                     if open[q][p] == 1:
                         total += 1
 
-            if total == len(key) * len(key):
+            if total == len(open) * len(open):
                 count += 1
 
             open = []
@@ -75,7 +81,7 @@ def solution(key, lock):
                     if open[q][p] == 1:
                         total += 1
 
-            if total == len(key) * len(key):
+            if total == len(open) * len(open):
                 count += 1
 
             open = []
@@ -88,7 +94,7 @@ def solution(key, lock):
         result_num += 1
     if count != 0:
         answer = True
-
+    # print(count)
     return answer
 
 key = [[0, 0, 0], [1, 0, 0], [0, 1, 1]]
