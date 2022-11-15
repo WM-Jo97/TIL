@@ -274,33 +274,33 @@
   
     참/ 거짓에 따라 분기가 나뉨
     
-    if 조건 == True:
-      분기 1
-    else:
-      분기 2
+      if 조건 == True:
+        분기 1
+      else:
+        분기 2
 
     ㄱ) 복수 조건문
       복수의 조건문은 elif를 이용해서 표현
       
-      if 조건:
-          분기 1
-      elif 조건:
-          분기 2
-      elif 조건:
-          분기 3
-      else:
-          분기 4
+        if 조건:
+            분기 1
+        elif 조건:
+            분기 2
+        elif 조건:
+            분기 3
+        else:
+            분기 4
 
     ㄴ) 중첩 조건문
       조건문 안데 다른 조건문을 중첩해서 사용할 수 있음
       
-      if 조건:
-          if 조건:
-              분기 1-1
-          else:
-              분기 1-2
-      eles:
-          분기 2
+        if 조건:
+            if 조건:
+                분기 1-1
+            else:
+                분기 1-2
+        eles:
+            분기 2
 
     ㄷ) 조건 표현식
   
@@ -309,9 +309,9 @@
   
       'true인 경우 값 if 조건 else false인 경우 값'
   
-      ex) X= A
-      Y = A if type(X)==int else Y = B
-      => Y = B
+        ex) X= A
+        Y = A if type(X)==int else Y = B
+        => Y = B
 
  2) 반복문
   
