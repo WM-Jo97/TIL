@@ -546,7 +546,7 @@
 
 </div>
 </details>
-
+<hr>
 <details>
   <summary> <h2>WEB</h2>  </summary>
 <div markdown="1">
@@ -835,7 +835,7 @@
                 sticky : 기본적으로 static이나 스크롤 이동에 따라 fixed로 변경
 </div>
 </details>
-
+<hr>
 <details>
   <summary> <h2>시큐어 코딩 이론</h2>  </summary>
 <div markdown="1">
