@@ -1,0 +1,22 @@
+to_middle : 도로 상 중앙 차선에서 얼마나 떨어져 있는지
+collided : 충돌하면 true 아니면 false
+speed : 속도를 확인
+moving_forward : 올바른 방향으로 가고 있는지
+
+moving_angle : 중앙선을 기준으로 왼쪽 : - 각도 오른쪽 : + 각도
+
+lap_ progress : 참고 시 어디쯤 있는지 확인
+
+half_ road_limit : 차폭 : 1.25
+
+자동차 가로 폭 : 4미터
+       세로 폭 : 
+
+
+ABC 
+문서폴더 -> AirSim
+
+Algo >> Map 값으로 맵 선택 및 장애물 on, off 가능
+1 : Basic, 3 : speed Racing , 6/7 : Saffy track , 16 : Germany
+
+0 : 장애물 없음, 1 : 장애물 있음
