@@ -1,0 +1,40 @@
+package ch03;
+
+public class Customer(int customerID, String customerName) {
+    this.customerID = customerID;
+    this.customerName = customerName;
+
+    customergrade = "SILVER";
+    bonusRatio = 0.01;
+    System.out.println("Customer(int,String) 생성자, 호출");
+
+}
+
+public class VipCustomer extends Customer {
+
+    double salesRatio;
+    private String agentID;
+
+    public VipCustomer( int customerID, String customerName){
+        super(0, "no name")
+        bonusRatio = 0.05;
+        salesRatio = 0.1;
+        customergrade = "VIP"
+
+        System.out.println("VipCustomer() call");
+    }
+
+
+}
+
+super 키워드
+
+    하위 클래스에서 가지는 상위 클래스에 대한 참조 값
+    super()는 상위 클래스의 기본 생성자를 호출 함
+    하위 클래스에서 명시적으로 상위 클래스의 생성자를 호출하지 않으면 super()가 호출됨
+    (이때 반드시 상위 클래스의 기본 생성자가 존재해야함)
+    상위 클래스의 기본 생성자가 없는 경우(다른 생성자가 있는 경우) 하위 클래스에서는 super를 이용하여
+    명시적으로 상위 클래스의 생성자를 호출함
+    super는 생성된 상위 클래스 인스턴스의 참조 값을 가지므로 super를 이용하여 상위 클래스의 메서드나 
+    멤버 변수에 접근할 수 있음
+
