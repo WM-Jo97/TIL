@@ -1,0 +1,18 @@
+보조 스트림
+    실제 읽고 쓰는 스트림이 아닌 보조 기능을 제공하는 스트림
+    FilterInputStream과 FilterOutputStream이 보조 스트림의 상위 클래스들
+    생성자의 매개변수로 또 다른 스트림(기반 스트림이나 다른 보조 스트림)을 가짐
+    Decorator Pattern으로 구현됨
+    
+    상위 클래스 생성자
+        protected FilterInputStream과 (InputStream in)
+        public FilterOutputStream(OutputStream out)
+
+        InputStreamReader와 OuterStreamWriter
+            바이트 단위로 읽거나 쓰는 자료를 문자로 변환해주는 보조 스트림
+
+        BufferedInputStream과 BufferedOutputStream
+            약 8K의 배열이 제공되어 입출력이 빠르게 하는 기능이 제공되는 보조 스트림
+        
+        DataInputStream 과 DataOutputStream
+            자료가 메모리에 저장된 상태 그대로 읽거나 쓰는 스트림
